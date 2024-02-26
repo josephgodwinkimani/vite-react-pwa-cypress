@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    // Enable constraints that allow a TypeScript project to be used with project references
+    "composite": true,
+    // Skip type checking all .d.ts files.
+    "skipLibCheck": true,
+    // Specify what module code is generated.
+    "module": "ESNext",
+    // Specify how TypeScript looks up a file from a given module specifier.
+    "moduleResolution": "bundler",
+    // Allow 'import x from y' when a module doesn't have a default export.
+    "allowSyntheticDefaultImports": true,
+    // Enable all strict type checking options. DO NOT CHANGE THIS.
+    "strict": true
+  },
+  "include": [
+    "vite.config.ts"
+  ]
+}

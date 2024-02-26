@@ -1,0 +1,26 @@
+name: Build
+on:
+    push:
+        branches:
+            - main
+    pull_request:
+        branches:
+            - main
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        strategy:
+            matrix:
+                node-version: [18.x]
+                # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+        steps:
+            - uses: actions/checkout@v4
+            - name: Use Node.js ${{ matrix.node-version }}
+              uses: actions/setup-node@v4
+            - name: Setup Node.js and pnpm
+              uses: pnpm/action-setup@v2
+              with:
+                  version: 8
+            - run: pnpm install --frozen-lockfile
+            - run: pnpm run lint
+            - run: pnpm run build

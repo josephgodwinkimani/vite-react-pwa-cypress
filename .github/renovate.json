@@ -1,0 +1,48 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:base"
+  ],
+  "packageRules": [
+    {
+      "packageNames": [
+        "*"
+      ],
+      "packagePatterns": [
+        "^vite$",
+        "^react$",
+        "^react-dom$"
+      ],
+      "depTypeList": [
+        "devDependencies",
+        "dependencies"
+      ],
+      "groupName": "Vite React Updates",
+      "automerge": false,
+      "enabled": true,
+      "timezone": "America/Wyoming",
+      "packageRules": [
+        {
+          "updateTypes": [
+            "minor",
+            "patch"
+          ],
+          "automerge": false
+        }
+      ],
+      "vulnerabilityAlerts": {
+        "enabled": true,
+        "schedule": [
+          "after 9am on Sunday"
+        ],
+        "commitMessagePrefix": "[SECURITY]"
+      },
+      "packageFileRules": [
+        {
+          "packageFile": "pnpm-lock.yaml",
+          "groupName": "Vite React Updates"
+        }
+      ]
+    }
+  ]
+}

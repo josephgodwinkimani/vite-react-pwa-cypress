@@ -1,0 +1,158 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 1,
+    "pending": 0,
+    "failures": 2,
+    "start": "2024-02-25T14:47:59.281Z",
+    "end": "2024-02-25T14:48:29.269Z",
+    "duration": 29988,
+    "testsRegistered": 3,
+    "passPercent": 33.33333333333333,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "72f5a41b-4be9-49e6-9679-5949afeb43c1",
+      "title": "",
+      "fullFile": "cypress\\e2e\\src\\App.spec.cy.ts",
+      "file": "cypress\\e2e\\src\\App.spec.cy.ts",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "a6f34463-e929-4881-9259-b5e28f634254",
+          "title": "App Component",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should increment count when button is clicked",
+              "fullTitle": "App Component should increment count when button is clicked",
+              "timedOut": null,
+              "duration": 3926,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit({\n    url: Cypress.env('base_Url')\n});\ncy.get('button').click();\ncy.get('button').contains('count is 1');",
+              "err": {},
+              "uuid": "2a44f6cc-2121-480d-a7f2-deb7cff8c9b6",
+              "parentUUID": "a6f34463-e929-4881-9259-b5e28f634254",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should navigate to Vite website when Vite logo is clicked",
+              "fullTitle": "App Component should navigate to Vite website when Vite logo is clicked",
+              "timedOut": null,
+              "duration": 4053,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('.logo').eq(0).click();\ncy.url().should('include', 'vitejs.dev');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.logo`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.logo`, but never found it.\n    at Context.eval (webpack://vite-react-ts/./cypress/e2e/src/App.spec.cy.ts:12:0)",
+                "diff": null
+              },
+              "uuid": "dffce390-ff21-412d-a217-f12337c068ac",
+              "parentUUID": "a6f34463-e929-4881-9259-b5e28f634254",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should navigate to React website when React logo is clicked",
+              "fullTitle": "App Component should navigate to React website when React logo is clicked",
+              "timedOut": null,
+              "duration": 4070,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('.logo.react').click();\ncy.url().should('include', 'react.dev');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.logo.react`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.logo.react`, but never found it.\n    at Context.eval (webpack://vite-react-ts/./cypress/e2e/src/App.spec.cy.ts:16:0)",
+                "diff": null
+              },
+              "uuid": "ff93cbc0-0b22-478f-9111-950b592c5c84",
+              "parentUUID": "a6f34463-e929-4881-9259-b5e28f634254",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "2a44f6cc-2121-480d-a7f2-deb7cff8c9b6"
+          ],
+          "failures": [
+            "dffce390-ff21-412d-a217-f12337c068ac",
+            "ff93cbc0-0b22-478f-9111-950b592c5c84"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 12049,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reporters": [
+          "html",
+          "istanbul"
+        ],
+        "inlineDiffs": true,
+        "inlineCoverage": true,
+        "nycOpts": {
+          "all": true,
+          "exclude": []
+        }
+      },
+      "version": "6.2.0"
+    }
+  }
+}

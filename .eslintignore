@@ -1,0 +1,7 @@
+# build output
+dist
+# dependencies
+node_modules
+# config files
+cypress.config.ts
+vite.config.ts

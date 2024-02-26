@@ -1,0 +1,40 @@
+name: Cypress e2e
+on:
+  push:
+    branches-ignore:
+      - "renovate/**"
+jobs:
+  basic-pnpm:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Install pnpm
+        run: npm install -g pnpm@8
+      - name: Get pnpm store directory
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
+      - name: Setup pnpm cache
+        uses: actions/cache@v4
+        with:
+          path: ${{ env.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('./pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+      - name: Cypress run
+        uses: cypress-io/github-action@v6
+        with:
+          working-directory: .          
+          build: pnpm run build
+          env: host=localhost,port=4222
+          start: pnpm run dev
+          browser: chrome
+          record: true
+        env:
+          # pass GitHub token to allow accurately detecting a build vs a re-run build
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # pass the Cypress Cloud record key as an environment variable
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+          # pass the project ID from the secrets through environment variable
+          CYPRESS_PROJECT_ID: ${{ secrets.PROJECT_ID }}

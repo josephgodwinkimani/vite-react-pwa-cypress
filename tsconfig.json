@@ -1,0 +1,63 @@
+{
+  "compilerOptions": {
+    // Specify type package names to be included without being referenced in a source file.
+    "types": [
+      "cypress",
+      // "cypress-plugin-stripe-elements"
+    ],
+    // Specify the base directory to resolve non-relative module names.
+    "baseUrl": ".",
+    // Set the JavaScript language version for emitted JavaScript and include compatible library declarations
+    "target": "ES2020",
+    // Emit ECMAScript-standard-compliant class fields
+    "useDefineForClassFields": true,
+    // Specify a set of bundled library declaration files that describe the target runtime environment
+    "lib": [
+      "ES2020",
+      "DOM",
+      "DOM.Iterable"
+    ],
+    // Specify what module code is generated
+    "module": "ESNext",
+    // Skip type checking all .d.ts files.
+    "skipLibCheck": true,
+    /* Bundler mode */
+    // Specify how TypeScript looks up a file from a given module specifier
+    "moduleResolution": "bundler",
+    // Allow imports to include TypeScript file extensions
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+    // Ensure that each file can be safely transpiled without relying on other imports
+    "isolatedModules": true,
+    // Disable emitting file from a compilation.
+    "noEmit": true,
+    // Specify what JSX code is generated.
+    "jsx": "react-jsx",
+    /* Linting */
+    "strict": true,
+    // Enable error reporting when a local variables aren't read.
+    "noUnusedLocals": true,
+    // Raise an error when a function parameter isn't read
+    "noUnusedParameters": true,
+    // Enable error reporting for fallthrough cases in switch statements.
+    "noFallthroughCasesInSwitch": true,
+    // Emit additional JavaScript to ease support for importing CommonJS modules
+    "esModuleInterop": true,
+    // Specify a set of entries that re-map imports to additional lookup locations.
+    "paths": {
+      "@/*": [
+        "src/*"
+      ]
+    }
+  },
+  "include": [
+    "src",
+    "cypress"
+  ],
+  // Referenced projects. Requires TypeScript version 3.0 or later.
+  "references": [
+    {
+      "path": "./tsconfig.node.json"
+    }
+  ]
+}
